@@ -321,25 +321,24 @@
 
 .gallery{
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
   gap:25px;
   width:100%;
 }
 
 .gallery img{
   width:100%;
-  max-width:100%;
-  height:auto;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:22px;
   display:block;
-  border-radius:20px;
-  object-fit:contain;
   transition:0.4s;
-  margin:auto;
+  background:#111;
 }
 
 .gallery img:hover{
-  transform:scale(1.01);
-  box-shadow:0 0 30px rgba(168,85,247,0.4);
+  transform:scale(1.02);
+  box-shadow:0 0 35px rgba(168,85,247,0.45);
 }
 
     }
