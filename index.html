@@ -1,368 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MAX7 GFX | Portfolio</title>
+
+  <title>MAX7 GFX | Gaming Graphic Designer</title>
+
+  <meta name="description"
+    content="Professional gaming graphic designer creating thumbnails, esports posters, logos and social media creatives.">
+
+  <!-- GOOGLE FONT -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-      font-family:'Poppins',sans-serif;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-    body{
-      background:#050505;
-      color:white;
-      overflow-x:hidden;
-    }
+  <!-- CSS -->
 
-    body::before{
-      content:"";
-      position:fixed;
-      width:500px;
-      height:500px;
-      background:#8b5cf6;
-      filter:blur(180px);
-      top:-200px;
-      left:-200px;
-      opacity:0.35;
-      z-index:-1;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    body::after{
-      content:"";
-      position:fixed;
-      width:400px;
-      height:400px;
-      background:#6d28d9;
-      filter:blur(180px);
-      bottom:-150px;
-      right:-150px;
-      opacity:0.25;
-      z-index:-1;
-    }
-
-    nav{
-      width:100%;
-      padding:20px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:fixed;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(12px);
-      background:rgba(0,0,0,0.35);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo{
-      font-size:28px;
-      font-weight:800;
-      color:#a855f7;
-      letter-spacing:2px;
-    }
-
-    nav ul{
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
-
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-      font-weight:500;
-    }
-
-    nav ul li a:hover{
-      color:#a855f7;
-    }
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:120px 8% 80px;
-      position:relative;
-    }
-
-    .hero-content h1{
-      font-size:80px;
-      line-height:1;
-      margin-bottom:20px;
-      font-weight:800;
-      background:linear-gradient(to right,#ffffff,#a855f7);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero-content p{
-      max-width:700px;
-      margin:auto;
-      color:#b3b3b3;
-      font-size:18px;
-      line-height:1.8;
-    }
-
-    .buttons{
-      margin-top:40px;
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 34px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.4s;
-    }
-
-    .primary{
-      background:#8b5cf6;
-      color:white;
-      box-shadow:0 0 25px rgba(139,92,246,0.5);
-    }
-
-    .primary:hover{
-      transform:translateY(-4px);
-      background:#a855f7;
-    }
-
-    .secondary{
-      border:1px solid rgba(255,255,255,0.15);
-      color:white;
-      background:rgba(255,255,255,0.05);
-    }
-
-    .secondary:hover{
-      background:rgba(255,255,255,0.1);
-    }
-
-    section{
-      padding:100px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:60px;
-    }
-
-    .section-title h2{
-      font-size:42px;
-      margin-bottom:12px;
-    }
-
-    .section-title p{
-      color:#999;
-    }
-
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:22px;
-      padding:35px;
-      transition:0.4s;
-      backdrop-filter:blur(12px);
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-      border-color:#8b5cf6;
-      box-shadow:0 0 30px rgba(139,92,246,0.25);
-    }
-
-    .card h3{
-      margin-bottom:15px;
-      color:#a855f7;
-    }
-
-    .card p{
-      color:#b3b3b3;
-      line-height:1.7;
-    }
-
-    .portfolio-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
-
-    .portfolio-item{
-      overflow:hidden;
-      border-radius:22px;
-      position:relative;
-      cursor:pointer;
-      height:350px;
-    }
-
-    .portfolio-item img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:0.5s;
-    }
-
-    .portfolio-item:hover img{
-      transform:scale(1.1);
-    }
- 
-    .overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
-      display:flex;
-      align-items:flex-end;
-      padding:25px;
-    }
-
-    .overlay h4{
-      font-size:22px;
-    }
-
-    .contact-box{
-      max-width:800px;
-      margin:auto;
-      text-align:center;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:50px;
-      border-radius:30px;
-    }
-
-    .contact-box h3{
-      font-size:38px;
-      margin-bottom:20px;
-    }
-
-    .contact-box p{
-      color:#b3b3b3;
-      margin-bottom:30px;
-      line-height:1.8;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      color:#777;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    @media(max-width:768px){
-
-      .hero-content h1{
-        font-size:52px;
-      }
-
-      nav ul{
-        display:none;
-      }
-
-      .section-title h2{
-        font-size:34px;
-      }
-
-      .contact-box h3{
-        font-size:28px;
-      }
-      
-      .hidden-page{
-  position:fixed;
-  inset:0;
-  background:#050505;
-  z-index:9999;
-  overflow-y:auto;
-  padding:120px 8% 60px;
-  display:none;
-}
-
-.page-header{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  margin-bottom:40px;
-  flex-wrap:wrap;
-}
-
-.page-header h1{
-  font-size:clamp(32px,8vw,60px);
-  color:#a855f7;
-  line-height:1;
-}
-
-.page-header button{
-  padding:14px 20px;
-  border:none;
-  background:#8b5cf6;
-  color:white;
-  border-radius:16px;
-  cursor:pointer;
-  font-weight:600;
-  min-width:90px;
-}
-
-/* GALLERY */
-
-.gallery{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-}
-
-.gallery img{
-  width:100%;
-  max-width:350px;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  border-radius:22px;
-  display:block;
-  transition:0.4s;
-}
-
-.gallery img:hover{
-  transform:scale(1.03);
-}
-
-    }
-
-  </style>
 </head>
+
 <body>
 
+  <!-- NAVBAR -->
+
   <nav>
+
     <div class="logo">MAX7 GFX</div>
 
     <ul>
+
       <li><a href="#home">Home</a></li>
+
       <li><a href="#services">Services</a></li>
+
       <li><a href="#portfolio">Portfolio</a></li>
+
       <li><a href="#contact">Contact</a></li>
+
     </ul>
+
   </nav>
 
   <!-- HERO -->
 
-  <section class="hero" id="home">
+  <section class="hero fade-up" id="home">
 
     <div class="hero-content">
 
@@ -370,201 +57,265 @@
 
       <p>
         Professional Gaming & Esports Graphic Designer.
-        Creating eye-catching thumbnails, esports posters,
-        logos, banners and social media designs that stand out.
+        Creating eye-catching thumbnails, posters,
+        logos, banners and social media creatives.
       </p>
 
       <div class="buttons">
-        <a href="#portfolio" class="btn primary">View Portfolio</a>
+
+        <a href="#portfolio" class="btn primary">
+          View Portfolio
+        </a>
 
         <a href="https://www.instagram.com/max7_gfx/" target="_blank" class="btn secondary">
           Instagram
         </a>
+
       </div>
 
     </div>
 
   </section>
+
+  <!-- MARQUEE -->
+
+  <div class="marquee">
+
+    <div class="marquee-content">
+
+      <span>Gaming Thumbnails</span>
+
+      <span>Esports Posters</span>
+
+      <span>Social Media Designs</span>
+
+      <span>Gaming Logos</span>
+
+      <span>Creative Branding</span>
+
+      <span>MAX7 GFX</span>
+
+      <span>Gaming Thumbnails</span>
+
+      <span>Esports Posters</span>
+
+      <span>Social Media Designs</span>
+
+      <span>Gaming Logos</span>
+
+    </div>
+
+  </div>
 
   <!-- SERVICES -->
 
   <section id="services">
 
-    <div class="section-title">
+    <div class="section-title fade-up">
+
       <h2>Services</h2>
-      <p>Premium Designs For Creators & Esports Teams</p>
+
+      <p>Premium Designs For Gaming Creators</p>
+
     </div>
 
     <div class="services">
 
-      <div class="card">
+      <div class="card fade-up">
+
         <h3>YouTube Thumbnails</h3>
-        <p>High CTR gaming thumbnails designed for maximum attention and clicks.</p>
+
+        <p>
+          High CTR thumbnails designed for gaming channels and creators.
+        </p>
+
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
+
         <h3>Esports Posters</h3>
-        <p>Professional esports event posters and tournament announcements.</p>
+
+        <p>
+          Professional esports posters and tournament creatives.
+        </p>
+
       </div>
 
-      <div class="card">
-        <h3>Logo Design</h3>
-        <p>Unique and modern gaming logo concepts for creators and teams.</p>
+      <div class="card fade-up">
+
+        <h3>Gaming Logos</h3>
+
+        <p>
+          Unique logos for creators, esports teams and gaming brands.
+        </p>
+
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
+
         <h3>Social Media Designs</h3>
-        <p>Instagram posts, stories, banners and branding kits.</p>
+
+        <p>
+          Instagram posts, banners, stories and branding kits.
+        </p>
+
       </div>
 
     </div>
 
   </section>
 
-<!-- REPLACE YOUR CURRENT PORTFOLIO SECTION WITH THIS -->
+  <!-- PORTFOLIO -->
 
-<section id="portfolio">
+  <section id="portfolio">
 
-  <div class="section-title">
-    <h2>Portfolio</h2>
-    <p>Recent Creative Projects</p>
-  </div>
+    <div class="section-title fade-up">
 
-  <div class="portfolio-grid">
+      <h2>Portfolio</h2>
 
-    <!-- GAMING -->
+      <p>Recent Creative Projects</p>
 
-    <div class="portfolio-item" onclick="openPage('thumbPage')">
+    </div>
 
-      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop" alt="">
+    <div class="portfolio-grid">
 
-      <div class="overlay">
-        <h4>Gaming Thumbnails</h4>
+      <!-- ITEM 1 -->
+
+      <div class="portfolio-item fade-up" onclick="openPage('thumbPage')">
+
+        <img src="images/p3.png" alt="Gaming Thumbnail">
+
+        <div class="overlay">
+
+          <h4>Gaming Thumbnails</h4>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM 2 -->
+
+      <div class="portfolio-item fade-up" onclick="openPage('esportsPage')">
+
+        <img src="images/b1.jpg" alt="Esports Poster">
+
+        <div class="overlay">
+
+          <h4>Esports Posters</h4>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM 3 -->
+
+      <div class="portfolio-item fade-up" onclick="openPage('socialPage')">
+
+        <img src="images/b2.jpg" alt="Social Media Design">
+
+        <div class="overlay">
+
+          <h4>Social Media Designs</h4>
+
+        </div>
+
       </div>
 
     </div>
 
-    <!-- ESPORTS -->
+  </section>
 
-    <div class="portfolio-item" onclick="openPage('esportsPage')">
+  <!-- THUMBNAIL PAGE -->
 
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="">
+  <div id="thumbPage" class="hidden-page">
 
-      <div class="overlay">
-        <h4>Esports Posters</h4>
-      </div>
+    <div class="page-header">
 
-    </div>
+      <button onclick="closePages()">← Back</button>
 
-    <!-- SOCIAL -->
-
-    <div class="portfolio-item" onclick="openPage('socialPage')">
-
-      <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop" alt="">
-
-      <div class="overlay">
-        <h4>Social Media Designs</h4>
-      </div>
+      <h1>Gaming Thumbnails</h1>
 
     </div>
 
-  </div>
+    <div class="gallery">
 
-</section>
+      <img src="images/p3.png">
 
-<!-- THUMBNAIL PAGE -->
+      <img src="images/b1.jpg">
 
-<div id="thumbPage" class="hidden-page">
+      <img src="images/b2.jpg">
 
-  <div class="page-header">
+      <img src="images/b3.jpg">
 
-    <button onclick="closePages()">← Back</button>
+      <img src="images/b4.jpg">
 
-    <h1>Gaming Thumbnails</h1>
+      <img src="images/b5.jpg">
 
-  </div>
+      <img src="images/b6.jpg">
 
-  <div class="gallery">
-  
-     <img src="p3.png">
-    <img src="b1.jpg">
-    <img src="b2.jpg">
-    <img src="b3.jpg">
-    <img src="b4.jpg">
-    <img src="b5.jpg">
-    <img src="b6.jpg">
-    <img src="b6.png">
-    <img src="b7.jpg">
-    <img src="b8.jpg">
-    <img src="b9.jpg">
-    <img src="b10.jpg">
-    <img src="b11.jpg">
-    <img src="p2.png">
-    <img src="f1.jpg">
-    <img src="f2.jpg">
-   <img src="f3.jpg">
-    <img src="f4.jpg">
-<img src="f5.jpg">
-    <img src="f6.jpg">
- <img src="p1.png">
-<img src="m1.jpg">
-    <img src="m2.jpg">
-  </div>
+      <img src="images/b7.jpg">
 
-</div>
+      <img src="images/b8.jpg">
 
-<!-- ESPORTS PAGE -->
+      <img src="images/b9.jpg">
 
-<div id="esportsPage" class="hidden-page">
+      <img src="images/b10.jpg">
 
-  <div class="page-header">
-
-    <button onclick="closePages()">← Back</button>
-
-    <h1>Esports Posters</h1>
+    </div>
 
   </div>
 
-  <div class="gallery">
+  <!-- ESPORTS PAGE -->
 
- <center>   <h1> Avelable Soon </h1> </center>
-    
-    
+  <div id="esportsPage" class="hidden-page">
+
+    <div class="page-header">
+
+      <button onclick="closePages()">← Back</button>
+
+      <h1>Esports Posters</h1>
+
+    </div>
+
+    <div class="gallery">
+
+      <h2 style="color:#a855f7;">Coming Soon</h2>
+
+    </div>
+
   </div>
 
-</div>
+  <!-- SOCIAL PAGE -->
 
-<!-- SOCIAL PAGE -->
+  <div id="socialPage" class="hidden-page">
 
-<div id="socialPage" class="hidden-page">
+    <div class="page-header">
 
-  <div class="page-header">
+      <button onclick="closePages()">← Back</button>
 
-    <button onclick="closePages()">← Back</button>
+      <h1>Social Media Designs</h1>
 
-    <h1>Social Media Designs</h1>
+    </div>
+
+    <div class="gallery">
+
+      <h2 style="color:#a855f7;">Coming Soon</h2>
+
+    </div>
 
   </div>
-
-  <div class="gallery">
-
-    <center>   <h1> Avelable Soon </h1> </center>
-    
-  </div>
-
-</div>
 
   <!-- CONTACT -->
 
   <section id="contact">
 
-    <div class="contact-box">
+    <div class="contact-box fade-up">
 
       <h3>Let’s Build Something Legendary</h3>
 
       <p>
-        Need premium gaming graphics for your content or esports team?
-        Contact MAX7 GFX today and level up your brand.
+        Need premium graphics for your gaming content or esports team?
+        Contact MAX7 GFX today.
       </p>
 
       <a href="https://www.instagram.com/max7_gfx/" target="_blank" class="btn primary">
@@ -575,33 +326,18 @@
 
   </section>
 
+  <!-- FOOTER -->
+
   <footer>
+
     © 2026 MAX7 GFX • All Rights Reserved
+
   </footer>
-  
-<script>
 
-function openPage(pageId){
+  <!-- JS -->
 
-  document.getElementById(pageId).style.display = "block";
-
-  document.body.style.overflow = "hidden";
-
-}
-
-function closePages(){
-
-  document.getElementById("thumbPage").style.display = "none";
-
-  document.getElementById("esportsPage").style.display = "none";
-
-  document.getElementById("socialPage").style.display = "none";
-
-  document.body.style.overflow = "auto";
-
-}
-
-</script>
+  <script src="main.js"></script>
 
 </body>
+
 </html>
